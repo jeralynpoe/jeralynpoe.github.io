@@ -1,1 +1,0 @@
-# jeralynpoe.github.io
