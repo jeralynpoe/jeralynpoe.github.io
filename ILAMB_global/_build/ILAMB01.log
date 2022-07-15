@@ -1,0 +1,1527 @@
+[INFO][0][<module>] Darwin CMPG7MP2G29J2.local 21.3.0 Darwin Kernel Version 21.3.0: Wed Jan  5 21:37:58 PST 2022; root:xnu-8019.80.24~20/RELEASE_ARM64_T6000 x86_64
+[INFO][0][<module>] /opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB (2.6)
+[INFO][0][<module>] /opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/numpy (1.23.0)
+[INFO][0][<module>] /opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/matplotlib (3.5.2)
+[INFO][0][<module>] /opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/netCDF4 (1.5.8)
+[INFO][0][<module>] /opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/cf_units (3.0.1)
+[INFO][0][<module>] /opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/sympy (1.10.1)
+[INFO][0][<module>] /opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/mpi4py (3.1.3)
+[INFO][0][<module>] 2022-07-06 12:53:41.396627
+[INFO][0][confront][Biomass/GEOCARBON][CABLE-POP] Success
+[INFO][0][confront][Biomass/GEOCARBON][CLASSIC] Success
+[INFO][0][confront][Biomass/GEOCARBON][CLM5] Success
+[INFO][0][confront][Biomass/GEOCARBON][DLEM] Success
+[INFO][0][confront][Biomass/GEOCARBON][IBIS] Success
+[INFO][0][confront][Biomass/GEOCARBON][ISAM] Success
+[INFO][0][confront][Biomass/GEOCARBON][ISBA-CTRIP] Success
+[INFO][0][confront][Biomass/GEOCARBON][JSBACH] Success
+[INFO][0][confront][Biomass/GEOCARBON][JULES] Success
+[INFO][0][confront][Biomass/GEOCARBON][LPJ-GUESS] Success
+[INFO][0][confront][Biomass/GEOCARBON][LPJwsl] Success
+[INFO][0][confront][Biomass/GEOCARBON][LPX-Bern] Success
+[INFO][0][confront][Biomass/GEOCARBON][OCN] Success
+[INFO][0][confront][Biomass/GEOCARBON][ORCHIDEE] Success
+[INFO][0][confront][Biomass/GEOCARBON][ORCHIDEE-CNP] Success
+[INFO][0][confront][Biomass/GEOCARBON][ORCHIDEEv3] Success
+[INFO][0][confront][Biomass/GEOCARBON][SDGVM] Success
+[INFO][0][confront][Biomass/GEOCARBON][VISIT] Success
+[INFO][0][confront][Biomass/GEOCARBON][YIBs] Success
+[INFO][0][confront][Biomass/GLOBAL.CARBON][CABLE-POP] Success
+[INFO][0][confront][Biomass/GLOBAL.CARBON][CLASSIC] Success
+[INFO][0][confront][Biomass/GLOBAL.CARBON][CLM5] Success
+[INFO][0][confront][Biomass/GLOBAL.CARBON][DLEM] Success
+[INFO][0][confront][Biomass/GLOBAL.CARBON][IBIS] Success
+[INFO][0][confront][Biomass/GLOBAL.CARBON][ISAM] Success
+[INFO][0][confront][Biomass/GLOBAL.CARBON][ISBA-CTRIP] Success
+[INFO][0][confront][Biomass/GLOBAL.CARBON][JSBACH] Success
+[INFO][0][confront][Biomass/GLOBAL.CARBON][JULES] Success
+[INFO][0][confront][Biomass/GLOBAL.CARBON][LPJ-GUESS] Success
+[INFO][0][confront][Biomass/GLOBAL.CARBON][LPJwsl] Success
+[INFO][0][confront][Biomass/GLOBAL.CARBON][LPX-Bern] Success
+[INFO][0][confront][Biomass/GLOBAL.CARBON][OCN] Success
+[INFO][0][confront][Biomass/GLOBAL.CARBON][ORCHIDEE] Success
+[INFO][0][confront][Biomass/GLOBAL.CARBON][ORCHIDEE-CNP] Success
+[INFO][0][confront][Biomass/GLOBAL.CARBON][ORCHIDEEv3] Success
+[INFO][0][confront][Biomass/GLOBAL.CARBON][SDGVM] Success
+[INFO][0][confront][Biomass/GLOBAL.CARBON][VISIT] Success
+[INFO][0][confront][Biomass/GLOBAL.CARBON][YIBs] Success
+[INFO][0][confront][EcosystemRespiration/FLUXCOM][CABLE-POP] Success
+[INFO][0][confront][EcosystemRespiration/FLUXCOM][CLASSIC] Success
+[INFO][0][confront][EcosystemRespiration/FLUXCOM][CLM5] Success
+[INFO][0][confront][EcosystemRespiration/FLUXCOM][DLEM] Success
+[INFO][0][confront][EcosystemRespiration/FLUXCOM][IBIS] Success
+[INFO][0][confront][EcosystemRespiration/FLUXCOM][ISAM] Success
+[INFO][0][confront][EcosystemRespiration/FLUXCOM][ISBA-CTRIP] Success
+[INFO][0][confront][EcosystemRespiration/FLUXCOM][JSBACH] Success
+[DEBUG][0][extractTimeSeries][JULES] Could not find [ra] in the model results
+[DEBUG][0][WorkConfront][EcosystemRespiration/FLUXCOM][JULES]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 316, in extractTimeSeries
+    v = self.derivedVariable(variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 376, in derivedVariable
+    Vs[arg] = self.extractTimeSeries(arg.name,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][0][extractTimeSeries][LPJ-GUESS] Could not find [ra] in the model results
+[DEBUG][0][WorkConfront][EcosystemRespiration/FLUXCOM][LPJ-GUESS]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 316, in extractTimeSeries
+    v = self.derivedVariable(variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 376, in derivedVariable
+    Vs[arg] = self.extractTimeSeries(arg.name,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][EcosystemRespiration/FLUXCOM][LPJwsl] Success
+[INFO][0][confront][EcosystemRespiration/FLUXCOM][LPX-Bern] Success
+[INFO][0][confront][EcosystemRespiration/FLUXCOM][OCN] Success
+[INFO][0][confront][EcosystemRespiration/FLUXCOM][ORCHIDEE] Success
+[INFO][0][confront][EcosystemRespiration/FLUXCOM][ORCHIDEE-CNP] Success
+[INFO][0][confront][EcosystemRespiration/FLUXCOM][ORCHIDEEv3] Success
+[INFO][0][confront][EcosystemRespiration/FLUXCOM][SDGVM] Success
+[INFO][0][confront][EcosystemRespiration/FLUXCOM][VISIT] Success
+[INFO][0][confront][EcosystemRespiration/FLUXCOM][YIBs] Success
+[INFO][0][confront][EcosystemRespiration/FLUXNET2015][CABLE-POP] Success
+[INFO][0][confront][EcosystemRespiration/FLUXNET2015][CLASSIC] Success
+[INFO][0][confront][EcosystemRespiration/FLUXNET2015][CLM5] Success
+[INFO][0][confront][EcosystemRespiration/FLUXNET2015][DLEM] Success
+[INFO][0][confront][EcosystemRespiration/FLUXNET2015][IBIS] Success
+[INFO][0][confront][EcosystemRespiration/FLUXNET2015][ISAM] Success
+[INFO][0][confront][EcosystemRespiration/FLUXNET2015][ISBA-CTRIP] Success
+[INFO][0][confront][EcosystemRespiration/FLUXNET2015][JSBACH] Success
+[DEBUG][0][extractTimeSeries][JULES] Could not find [ra] in the model results
+[DEBUG][0][WorkConfront][EcosystemRespiration/FLUXNET2015][JULES]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 316, in extractTimeSeries
+    v = self.derivedVariable(variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 376, in derivedVariable
+    Vs[arg] = self.extractTimeSeries(arg.name,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][0][extractTimeSeries][LPJ-GUESS] Could not find [ra] in the model results
+[DEBUG][0][WorkConfront][EcosystemRespiration/FLUXNET2015][LPJ-GUESS]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 316, in extractTimeSeries
+    v = self.derivedVariable(variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 376, in derivedVariable
+    Vs[arg] = self.extractTimeSeries(arg.name,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][EcosystemRespiration/FLUXNET2015][LPJwsl] Success
+[INFO][0][confront][EcosystemRespiration/FLUXNET2015][LPX-Bern] Success
+[INFO][0][confront][EcosystemRespiration/FLUXNET2015][OCN] Success
+[INFO][0][confront][EcosystemRespiration/FLUXNET2015][ORCHIDEE] Success
+[INFO][0][confront][EcosystemRespiration/FLUXNET2015][ORCHIDEE-CNP] Success
+[INFO][0][confront][EcosystemRespiration/FLUXNET2015][ORCHIDEEv3] Success
+[INFO][0][confront][EcosystemRespiration/FLUXNET2015][SDGVM] Success
+[INFO][0][confront][EcosystemRespiration/FLUXNET2015][VISIT] Success
+[INFO][0][confront][EcosystemRespiration/FLUXNET2015][YIBs] Success
+[INFO][0][confront][EcosystemRespiration/GBAF][CABLE-POP] Success
+[INFO][0][confront][EcosystemRespiration/GBAF][CLASSIC] Success
+[INFO][0][confront][EcosystemRespiration/GBAF][CLM5] Success
+[INFO][0][confront][EcosystemRespiration/GBAF][DLEM] Success
+[INFO][0][confront][EcosystemRespiration/GBAF][IBIS] Success
+[INFO][0][confront][EcosystemRespiration/GBAF][ISAM] Success
+[INFO][0][confront][EcosystemRespiration/GBAF][ISBA-CTRIP] Success
+[INFO][0][confront][EcosystemRespiration/GBAF][JSBACH] Success
+[DEBUG][0][extractTimeSeries][JULES] Could not find [ra] in the model results
+[DEBUG][0][WorkConfront][EcosystemRespiration/GBAF][JULES]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 316, in extractTimeSeries
+    v = self.derivedVariable(variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 376, in derivedVariable
+    Vs[arg] = self.extractTimeSeries(arg.name,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][0][extractTimeSeries][LPJ-GUESS] Could not find [ra] in the model results
+[DEBUG][0][WorkConfront][EcosystemRespiration/GBAF][LPJ-GUESS]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 316, in extractTimeSeries
+    v = self.derivedVariable(variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 376, in derivedVariable
+    Vs[arg] = self.extractTimeSeries(arg.name,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][EcosystemRespiration/GBAF][LPJwsl] Success
+[INFO][0][confront][EcosystemRespiration/GBAF][LPX-Bern] Success
+[INFO][0][confront][EcosystemRespiration/GBAF][OCN] Success
+[INFO][0][confront][EcosystemRespiration/GBAF][ORCHIDEE] Success
+[INFO][0][confront][EcosystemRespiration/GBAF][ORCHIDEE-CNP] Success
+[INFO][0][confront][EcosystemRespiration/GBAF][ORCHIDEEv3] Success
+[INFO][0][confront][EcosystemRespiration/GBAF][SDGVM] Success
+[INFO][0][confront][EcosystemRespiration/GBAF][VISIT] Success
+[INFO][0][confront][EcosystemRespiration/GBAF][YIBs] Success
+[INFO][0][confront][LeafAreaIndex/AVH15C1][CABLE-POP] Success
+[INFO][0][confront][LeafAreaIndex/AVH15C1][CLASSIC] Success
+[INFO][0][confront][LeafAreaIndex/AVH15C1][CLM5] Success
+[DEBUG][0][WorkConfront][LeafAreaIndex/AVH15C1][DLEM]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 282, in extractTimeSeries
+    var = Variable(filename       = pathName,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Variable.py", line 132, in __init__
+    out = il.FromNetCDF4(filename,variable_name,alternate_vars,t0,tf,group=groupname,convert_calendar=convert_calendar)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ilamblib.py", line 790, in FromNetCDF4
+    t,t_bnd,cbounds,begin,end,calendar = GetTime(var,t0=t0,tf=tf,convert_calendar=convert_calendar)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ilamblib.py", line 246, in GetTime
+    tb = CreateTimeBounds(t,alpha=GuessAlpha(t))
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ilamblib.py", line 149, in GuessAlpha
+    t0 = cf.num2date(t[0],t.units,calendar=t.calendar)
+  File "src/cftime/_cftime.pyx", line 547, in cftime._cftime.num2date
+  File "src/cftime/_cftime.pyx", line 103, in cftime._cftime._dateparse
+ValueError: units must be one of 'seconds', 'minutes', 'hours' or 'days' (or singular version of these), got 'years'
+
+[INFO][0][confront][LeafAreaIndex/AVH15C1][IBIS] Success
+[INFO][0][confront][LeafAreaIndex/AVH15C1][ISAM] Success
+[INFO][0][confront][LeafAreaIndex/AVH15C1][ISBA-CTRIP] Success
+[DEBUG][0][extractTimeSeries][JSBACH] Could not find [lai] in the model results
+[DEBUG][0][WorkConfront][LeafAreaIndex/AVH15C1][JSBACH]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][LeafAreaIndex/AVH15C1][JULES] Success
+[INFO][0][confront][LeafAreaIndex/AVH15C1][LPJ-GUESS] Success
+[DEBUG][0][extractTimeSeries][LPJwsl] Could not find [lai] in the model results
+[DEBUG][0][WorkConfront][LeafAreaIndex/AVH15C1][LPJwsl]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][LeafAreaIndex/AVH15C1][LPX-Bern] Success
+[INFO][0][confront][LeafAreaIndex/AVH15C1][OCN] Success
+[DEBUG][0][extractTimeSeries][ORCHIDEE] Could not find [lai] in the model results
+[DEBUG][0][WorkConfront][LeafAreaIndex/AVH15C1][ORCHIDEE]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][0][extractTimeSeries][ORCHIDEE-CNP] Could not find [lai] in the model results
+[DEBUG][0][WorkConfront][LeafAreaIndex/AVH15C1][ORCHIDEE-CNP]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][LeafAreaIndex/AVH15C1][ORCHIDEEv3] Success
+[INFO][0][confront][LeafAreaIndex/AVH15C1][SDGVM] Success
+[INFO][0][confront][LeafAreaIndex/AVH15C1][VISIT] Success
+[INFO][0][confront][LeafAreaIndex/AVH15C1][YIBs] Success
+[INFO][0][confront][LeafAreaIndex/AVHRR][CABLE-POP] Success
+[INFO][0][confront][LeafAreaIndex/AVHRR][CLASSIC] Success
+[INFO][0][confront][LeafAreaIndex/AVHRR][CLM5] Success
+[DEBUG][0][WorkConfront][LeafAreaIndex/AVHRR][DLEM]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 282, in extractTimeSeries
+    var = Variable(filename       = pathName,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Variable.py", line 132, in __init__
+    out = il.FromNetCDF4(filename,variable_name,alternate_vars,t0,tf,group=groupname,convert_calendar=convert_calendar)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ilamblib.py", line 790, in FromNetCDF4
+    t,t_bnd,cbounds,begin,end,calendar = GetTime(var,t0=t0,tf=tf,convert_calendar=convert_calendar)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ilamblib.py", line 246, in GetTime
+    tb = CreateTimeBounds(t,alpha=GuessAlpha(t))
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ilamblib.py", line 149, in GuessAlpha
+    t0 = cf.num2date(t[0],t.units,calendar=t.calendar)
+  File "src/cftime/_cftime.pyx", line 547, in cftime._cftime.num2date
+  File "src/cftime/_cftime.pyx", line 103, in cftime._cftime._dateparse
+ValueError: units must be one of 'seconds', 'minutes', 'hours' or 'days' (or singular version of these), got 'years'
+
+[INFO][0][confront][LeafAreaIndex/AVHRR][IBIS] Success
+[INFO][0][confront][LeafAreaIndex/AVHRR][ISAM] Success
+[INFO][0][confront][LeafAreaIndex/AVHRR][ISBA-CTRIP] Success
+[DEBUG][0][extractTimeSeries][JSBACH] Could not find [lai] in the model results
+[DEBUG][0][WorkConfront][LeafAreaIndex/AVHRR][JSBACH]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][LeafAreaIndex/AVHRR][JULES] Success
+[INFO][0][confront][LeafAreaIndex/AVHRR][LPJ-GUESS] Success
+[DEBUG][0][extractTimeSeries][LPJwsl] Could not find [lai] in the model results
+[DEBUG][0][WorkConfront][LeafAreaIndex/AVHRR][LPJwsl]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][LeafAreaIndex/AVHRR][LPX-Bern] Success
+[INFO][0][confront][LeafAreaIndex/AVHRR][OCN] Success
+[DEBUG][0][extractTimeSeries][ORCHIDEE] Could not find [lai] in the model results
+[DEBUG][0][WorkConfront][LeafAreaIndex/AVHRR][ORCHIDEE]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][0][extractTimeSeries][ORCHIDEE-CNP] Could not find [lai] in the model results
+[DEBUG][0][WorkConfront][LeafAreaIndex/AVHRR][ORCHIDEE-CNP]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][LeafAreaIndex/AVHRR][ORCHIDEEv3] Success
+[INFO][0][confront][LeafAreaIndex/AVHRR][SDGVM] Success
+[INFO][0][confront][LeafAreaIndex/AVHRR][VISIT] Success
+[INFO][0][confront][LeafAreaIndex/AVHRR][YIBs] Success
+[INFO][0][confront][LeafAreaIndex/MODIS][CABLE-POP] Success
+[INFO][0][confront][LeafAreaIndex/MODIS][CLASSIC] Success
+[INFO][0][confront][LeafAreaIndex/MODIS][CLM5] Success
+[DEBUG][0][WorkConfront][LeafAreaIndex/MODIS][DLEM]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 282, in extractTimeSeries
+    var = Variable(filename       = pathName,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Variable.py", line 132, in __init__
+    out = il.FromNetCDF4(filename,variable_name,alternate_vars,t0,tf,group=groupname,convert_calendar=convert_calendar)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ilamblib.py", line 790, in FromNetCDF4
+    t,t_bnd,cbounds,begin,end,calendar = GetTime(var,t0=t0,tf=tf,convert_calendar=convert_calendar)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ilamblib.py", line 246, in GetTime
+    tb = CreateTimeBounds(t,alpha=GuessAlpha(t))
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ilamblib.py", line 149, in GuessAlpha
+    t0 = cf.num2date(t[0],t.units,calendar=t.calendar)
+  File "src/cftime/_cftime.pyx", line 547, in cftime._cftime.num2date
+  File "src/cftime/_cftime.pyx", line 103, in cftime._cftime._dateparse
+ValueError: units must be one of 'seconds', 'minutes', 'hours' or 'days' (or singular version of these), got 'years'
+
+[INFO][0][confront][LeafAreaIndex/MODIS][IBIS] Success
+[INFO][0][confront][LeafAreaIndex/MODIS][ISAM] Success
+[INFO][0][confront][LeafAreaIndex/MODIS][ISBA-CTRIP] Success
+[DEBUG][0][extractTimeSeries][JSBACH] Could not find [lai] in the model results
+[DEBUG][0][WorkConfront][LeafAreaIndex/MODIS][JSBACH]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][LeafAreaIndex/MODIS][JULES] Success
+[INFO][0][confront][LeafAreaIndex/MODIS][LPJ-GUESS] Success
+[DEBUG][0][extractTimeSeries][LPJwsl] Could not find [lai] in the model results
+[DEBUG][0][WorkConfront][LeafAreaIndex/MODIS][LPJwsl]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][LeafAreaIndex/MODIS][LPX-Bern] Success
+[INFO][0][confront][LeafAreaIndex/MODIS][OCN] Success
+[DEBUG][0][extractTimeSeries][ORCHIDEE] Could not find [lai] in the model results
+[DEBUG][0][WorkConfront][LeafAreaIndex/MODIS][ORCHIDEE]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][0][extractTimeSeries][ORCHIDEE-CNP] Could not find [lai] in the model results
+[DEBUG][0][WorkConfront][LeafAreaIndex/MODIS][ORCHIDEE-CNP]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][LeafAreaIndex/MODIS][ORCHIDEEv3] Success
+[INFO][0][confront][LeafAreaIndex/MODIS][SDGVM] Success
+[INFO][0][confront][LeafAreaIndex/MODIS][VISIT] Success
+[INFO][0][confront][LeafAreaIndex/MODIS][YIBs] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXCOM][CABLE-POP] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXCOM][CLASSIC] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXCOM][CLM5] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXCOM][DLEM] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXCOM][IBIS] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXCOM][ISAM] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXCOM][ISBA-CTRIP] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXCOM][JSBACH] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXCOM][JULES] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXCOM][LPJ-GUESS] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXCOM][LPJwsl] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXCOM][LPX-Bern] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXCOM][OCN] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXCOM][ORCHIDEE] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXCOM][ORCHIDEE-CNP] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXCOM][ORCHIDEEv3] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXCOM][SDGVM] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXCOM][VISIT] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXCOM][YIBs] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXNET2015][CABLE-POP] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXNET2015][CLASSIC] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXNET2015][CLM5] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXNET2015][DLEM] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXNET2015][IBIS] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXNET2015][ISAM] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXNET2015][ISBA-CTRIP] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXNET2015][JSBACH] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXNET2015][JULES] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXNET2015][LPJ-GUESS] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXNET2015][LPJwsl] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXNET2015][LPX-Bern] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXNET2015][OCN] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXNET2015][ORCHIDEE] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXNET2015][ORCHIDEE-CNP] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXNET2015][ORCHIDEEv3] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXNET2015][SDGVM] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXNET2015][VISIT] Success
+[INFO][0][confront][GrossPrimaryProduction/FLUXNET2015][YIBs] Success
+[INFO][0][confront][GrossPrimaryProduction/GBAF][CABLE-POP] Success
+[INFO][0][confront][GrossPrimaryProduction/GBAF][CLASSIC] Success
+[INFO][0][confront][GrossPrimaryProduction/GBAF][CLM5] Success
+[INFO][0][confront][GrossPrimaryProduction/GBAF][DLEM] Success
+[INFO][0][confront][GrossPrimaryProduction/GBAF][IBIS] Success
+[INFO][0][confront][GrossPrimaryProduction/GBAF][ISAM] Success
+[INFO][0][confront][GrossPrimaryProduction/GBAF][ISBA-CTRIP] Success
+[INFO][0][confront][GrossPrimaryProduction/GBAF][JSBACH] Success
+[INFO][0][confront][GrossPrimaryProduction/GBAF][JULES] Success
+[INFO][0][confront][GrossPrimaryProduction/GBAF][LPJ-GUESS] Success
+[INFO][0][confront][GrossPrimaryProduction/GBAF][LPJwsl] Success
+[INFO][0][confront][GrossPrimaryProduction/GBAF][LPX-Bern] Success
+[INFO][0][confront][GrossPrimaryProduction/GBAF][OCN] Success
+[INFO][0][confront][GrossPrimaryProduction/GBAF][ORCHIDEE] Success
+[INFO][0][confront][GrossPrimaryProduction/GBAF][ORCHIDEE-CNP] Success
+[INFO][0][confront][GrossPrimaryProduction/GBAF][ORCHIDEEv3] Success
+[INFO][0][confront][GrossPrimaryProduction/GBAF][SDGVM] Success
+[INFO][0][confront][GrossPrimaryProduction/GBAF][VISIT] Success
+[INFO][0][confront][GrossPrimaryProduction/GBAF][YIBs] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXCOM][CABLE-POP] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXCOM][CLASSIC] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXCOM][CLM5] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXCOM][DLEM] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXCOM][IBIS] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXCOM][ISAM] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXCOM][ISBA-CTRIP] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXCOM][JSBACH] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXCOM][JULES] Success
+[DEBUG][0][extractTimeSeries][LPJ-GUESS] Could not find [rh] in the model results
+[DEBUG][0][WorkConfront][NetEcosystemExchange/FLUXCOM][LPJ-GUESS]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 316, in extractTimeSeries
+    v = self.derivedVariable(variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 376, in derivedVariable
+    Vs[arg] = self.extractTimeSeries(arg.name,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][0][CombineVariables][MonotonicityError]
+   0: t = [47465.500, 59844.500]  * /Volumes/Elements/ILAMB_analysis/MODELS/LPJwsl/npp/LPJ_S3_npp.nc
+   1: t = [47465.500, 59844.500] ** /Volumes/Elements/ILAMB_analysis/MODELS/LPJwsl/npp/LPJ_S3_npp_edited.nc
+[DEBUG][0][WorkConfront][NetEcosystemExchange/FLUXCOM][LPJwsl]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 316, in extractTimeSeries
+    v = self.derivedVariable(variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 376, in derivedVariable
+    Vs[arg] = self.extractTimeSeries(arg.name,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 328, in extractTimeSeries
+    v = il.CombineVariables(V)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ilamblib.py", line 1932, in CombineVariables
+    raise MonotonicityError()
+ILAMB.ilamblib.MonotonicityError: MonotonicityError
+
+[INFO][0][confront][NetEcosystemExchange/FLUXCOM][LPX-Bern] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXCOM][OCN] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXCOM][ORCHIDEE] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXCOM][ORCHIDEE-CNP] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXCOM][ORCHIDEEv3] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXCOM][SDGVM] Success
+[DEBUG][0][extractTimeSeries][VISIT] Could not find [npp] in the model results
+[DEBUG][0][WorkConfront][NetEcosystemExchange/FLUXCOM][VISIT]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 316, in extractTimeSeries
+    v = self.derivedVariable(variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 376, in derivedVariable
+    Vs[arg] = self.extractTimeSeries(arg.name,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][NetEcosystemExchange/FLUXCOM][YIBs] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXNET2015][CABLE-POP] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXNET2015][CLASSIC] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXNET2015][CLM5] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXNET2015][DLEM] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXNET2015][IBIS] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXNET2015][ISAM] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXNET2015][ISBA-CTRIP] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXNET2015][JSBACH] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXNET2015][JULES] Success
+[DEBUG][0][extractTimeSeries][LPJ-GUESS] Could not find [rh] in the model results
+[DEBUG][0][WorkConfront][NetEcosystemExchange/FLUXNET2015][LPJ-GUESS]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 316, in extractTimeSeries
+    v = self.derivedVariable(variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 376, in derivedVariable
+    Vs[arg] = self.extractTimeSeries(arg.name,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][0][CombineVariables][MonotonicityError]
+   0: t = [51480.500, 60209.500]  * 
+   1: t = [51480.500, 60209.500] ** 
+[DEBUG][0][WorkConfront][NetEcosystemExchange/FLUXNET2015][LPJwsl]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 316, in extractTimeSeries
+    v = self.derivedVariable(variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 376, in derivedVariable
+    Vs[arg] = self.extractTimeSeries(arg.name,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 328, in extractTimeSeries
+    v = il.CombineVariables(V)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ilamblib.py", line 1932, in CombineVariables
+    raise MonotonicityError()
+ILAMB.ilamblib.MonotonicityError: MonotonicityError
+
+[INFO][0][confront][NetEcosystemExchange/FLUXNET2015][LPX-Bern] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXNET2015][OCN] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXNET2015][ORCHIDEE] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXNET2015][ORCHIDEE-CNP] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXNET2015][ORCHIDEEv3] Success
+[INFO][0][confront][NetEcosystemExchange/FLUXNET2015][SDGVM] Success
+[DEBUG][0][extractTimeSeries][VISIT] Could not find [npp] in the model results
+[DEBUG][0][WorkConfront][NetEcosystemExchange/FLUXNET2015][VISIT]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 316, in extractTimeSeries
+    v = self.derivedVariable(variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 376, in derivedVariable
+    Vs[arg] = self.extractTimeSeries(arg.name,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][NetEcosystemExchange/FLUXNET2015][YIBs] Success
+[INFO][0][confront][NetEcosystemExchange/GBAF][CABLE-POP] Success
+[INFO][0][confront][NetEcosystemExchange/GBAF][CLASSIC] Success
+[INFO][0][confront][NetEcosystemExchange/GBAF][CLM5] Success
+[INFO][0][confront][NetEcosystemExchange/GBAF][DLEM] Success
+[INFO][0][confront][NetEcosystemExchange/GBAF][IBIS] Success
+[INFO][0][confront][NetEcosystemExchange/GBAF][ISAM] Success
+[INFO][0][confront][NetEcosystemExchange/GBAF][ISBA-CTRIP] Success
+[INFO][0][confront][NetEcosystemExchange/GBAF][JSBACH] Success
+[INFO][0][confront][NetEcosystemExchange/GBAF][JULES] Success
+[DEBUG][0][extractTimeSeries][LPJ-GUESS] Could not find [rh] in the model results
+[DEBUG][0][WorkConfront][NetEcosystemExchange/GBAF][LPJ-GUESS]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 316, in extractTimeSeries
+    v = self.derivedVariable(variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 376, in derivedVariable
+    Vs[arg] = self.extractTimeSeries(arg.name,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][0][CombineVariables][MonotonicityError]
+   0: t = [48195.500, 58019.500]  * /Volumes/Elements/ILAMB_analysis/MODELS/LPJwsl/npp/LPJ_S3_npp.nc
+   1: t = [48195.500, 58019.500] ** /Volumes/Elements/ILAMB_analysis/MODELS/LPJwsl/npp/LPJ_S3_npp_edited.nc
+[DEBUG][0][WorkConfront][NetEcosystemExchange/GBAF][LPJwsl]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 316, in extractTimeSeries
+    v = self.derivedVariable(variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 376, in derivedVariable
+    Vs[arg] = self.extractTimeSeries(arg.name,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 328, in extractTimeSeries
+    v = il.CombineVariables(V)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ilamblib.py", line 1932, in CombineVariables
+    raise MonotonicityError()
+ILAMB.ilamblib.MonotonicityError: MonotonicityError
+
+[INFO][0][confront][NetEcosystemExchange/GBAF][LPX-Bern] Success
+[INFO][0][confront][NetEcosystemExchange/GBAF][OCN] Success
+[INFO][0][confront][NetEcosystemExchange/GBAF][ORCHIDEE] Success
+[INFO][0][confront][NetEcosystemExchange/GBAF][ORCHIDEE-CNP] Success
+[INFO][0][confront][NetEcosystemExchange/GBAF][ORCHIDEEv3] Success
+[INFO][0][confront][NetEcosystemExchange/GBAF][SDGVM] Success
+[DEBUG][0][extractTimeSeries][VISIT] Could not find [npp] in the model results
+[DEBUG][0][WorkConfront][NetEcosystemExchange/GBAF][VISIT]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 316, in extractTimeSeries
+    v = self.derivedVariable(variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 376, in derivedVariable
+    Vs[arg] = self.extractTimeSeries(arg.name,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][NetEcosystemExchange/GBAF][YIBs] Success
+[INFO][0][confront][NetPrimaryProduction/Koven][CABLE-POP] Success
+[INFO][0][confront][NetPrimaryProduction/Koven][CLASSIC] Success
+[INFO][0][confront][NetPrimaryProduction/Koven][CLM5] Success
+[INFO][0][confront][NetPrimaryProduction/Koven][DLEM] Success
+[INFO][0][confront][NetPrimaryProduction/Koven][IBIS] Success
+[INFO][0][confront][NetPrimaryProduction/Koven][ISAM] Success
+[INFO][0][confront][NetPrimaryProduction/Koven][ISBA-CTRIP] Success
+[INFO][0][confront][NetPrimaryProduction/Koven][JSBACH] Success
+[INFO][0][confront][NetPrimaryProduction/Koven][JULES] Success
+[INFO][0][confront][NetPrimaryProduction/Koven][LPJ-GUESS] Success
+[DEBUG][0][CombineVariables][MonotonicityError]
+   0: t = [47465.500, 56924.500]  * /Volumes/Elements/ILAMB_analysis/MODELS/LPJwsl/npp/LPJ_S3_npp.nc
+   1: t = [47465.500, 56924.500] ** /Volumes/Elements/ILAMB_analysis/MODELS/LPJwsl/npp/LPJ_S3_npp_edited.nc
+[DEBUG][0][WorkConfront][NetPrimaryProduction/Koven][LPJwsl]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 328, in extractTimeSeries
+    v = il.CombineVariables(V)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ilamblib.py", line 1932, in CombineVariables
+    raise MonotonicityError()
+ILAMB.ilamblib.MonotonicityError: MonotonicityError
+
+[INFO][0][confront][NetPrimaryProduction/Koven][LPX-Bern] Success
+[INFO][0][confront][NetPrimaryProduction/Koven][OCN] Success
+[INFO][0][confront][NetPrimaryProduction/Koven][ORCHIDEE] Success
+[INFO][0][confront][NetPrimaryProduction/Koven][ORCHIDEE-CNP] Success
+[INFO][0][confront][NetPrimaryProduction/Koven][ORCHIDEEv3] Success
+[INFO][0][confront][NetPrimaryProduction/Koven][SDGVM] Success
+[DEBUG][0][extractTimeSeries][VISIT] Could not find [npp] in the model results
+[DEBUG][0][WorkConfront][NetPrimaryProduction/Koven][VISIT]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][NetPrimaryProduction/Koven][YIBs] Success
+[INFO][0][confront][SoilCarbon/HWSD][CABLE-POP] Success
+[INFO][0][confront][SoilCarbon/HWSD][CLASSIC] Success
+[INFO][0][confront][SoilCarbon/HWSD][CLM5] Success
+[INFO][0][confront][SoilCarbon/HWSD][DLEM] Success
+[INFO][0][confront][SoilCarbon/HWSD][IBIS] Success
+[INFO][0][confront][SoilCarbon/HWSD][ISAM] Success
+[INFO][0][confront][SoilCarbon/HWSD][ISBA-CTRIP] Success
+[INFO][0][confront][SoilCarbon/HWSD][JSBACH] Success
+[INFO][0][confront][SoilCarbon/HWSD][JULES] Success
+[INFO][0][confront][SoilCarbon/HWSD][LPJ-GUESS] Success
+[INFO][0][confront][SoilCarbon/HWSD][LPJwsl] Success
+[INFO][0][confront][SoilCarbon/HWSD][LPX-Bern] Success
+[INFO][0][confront][SoilCarbon/HWSD][OCN] Success
+[INFO][0][confront][SoilCarbon/HWSD][ORCHIDEE] Success
+[INFO][0][confront][SoilCarbon/HWSD][ORCHIDEE-CNP] Success
+[INFO][0][confront][SoilCarbon/HWSD][ORCHIDEEv3] Success
+[INFO][0][confront][SoilCarbon/HWSD][SDGVM] Success
+[INFO][0][confront][SoilCarbon/HWSD][VISIT] Success
+[INFO][0][confront][SoilCarbon/HWSD][YIBs] Success
+[INFO][0][confront][Evapotranspiration/GLEAMv3.3a][CABLE-POP] Success
+[INFO][0][confront][Evapotranspiration/GLEAMv3.3a][CLASSIC] Success
+[INFO][0][confront][Evapotranspiration/GLEAMv3.3a][CLM5] Success
+[INFO][0][confront][Evapotranspiration/GLEAMv3.3a][DLEM] Success
+[INFO][0][confront][Evapotranspiration/GLEAMv3.3a][IBIS] Success
+[INFO][0][confront][Evapotranspiration/GLEAMv3.3a][ISAM] Success
+[INFO][0][confront][Evapotranspiration/GLEAMv3.3a][ISBA-CTRIP] Success
+[INFO][0][confront][Evapotranspiration/GLEAMv3.3a][JSBACH] Success
+[INFO][0][confront][Evapotranspiration/GLEAMv3.3a][JULES] Success
+[INFO][0][confront][Evapotranspiration/GLEAMv3.3a][LPJ-GUESS] Success
+[DEBUG][0][extractTimeSeries][LPJwsl] Could not find [evapotrans,et] in the model results
+[DEBUG][0][WorkConfront][Evapotranspiration/GLEAMv3.3a][LPJwsl]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][Evapotranspiration/GLEAMv3.3a][LPX-Bern] Success
+[INFO][0][confront][Evapotranspiration/GLEAMv3.3a][OCN] Success
+[INFO][0][confront][Evapotranspiration/GLEAMv3.3a][ORCHIDEE] Success
+[INFO][0][confront][Evapotranspiration/GLEAMv3.3a][ORCHIDEE-CNP] Success
+[INFO][0][confront][Evapotranspiration/GLEAMv3.3a][ORCHIDEEv3] Success
+[INFO][0][confront][Evapotranspiration/GLEAMv3.3a][SDGVM] Success
+[INFO][0][confront][Evapotranspiration/GLEAMv3.3a][VISIT] Success
+[DEBUG][0][extractTimeSeries][YIBs] Could not find [evapotrans,et] in the model results
+[DEBUG][0][WorkConfront][Evapotranspiration/GLEAMv3.3a][YIBs]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][Evapotranspiration/MOD16A2][CABLE-POP] Success
+[INFO][0][confront][Evapotranspiration/MOD16A2][CLASSIC] Success
+[INFO][0][confront][Evapotranspiration/MOD16A2][CLM5] Success
+[INFO][0][confront][Evapotranspiration/MOD16A2][DLEM] Success
+[INFO][0][confront][Evapotranspiration/MOD16A2][IBIS] Success
+[INFO][0][confront][Evapotranspiration/MOD16A2][ISAM] Success
+[INFO][0][confront][Evapotranspiration/MOD16A2][ISBA-CTRIP] Success
+[INFO][0][confront][Evapotranspiration/MOD16A2][JSBACH] Success
+[INFO][0][confront][Evapotranspiration/MOD16A2][JULES] Success
+[INFO][0][confront][Evapotranspiration/MOD16A2][LPJ-GUESS] Success
+[DEBUG][0][extractTimeSeries][LPJwsl] Could not find [evapotrans,et] in the model results
+[DEBUG][0][WorkConfront][Evapotranspiration/MOD16A2][LPJwsl]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][Evapotranspiration/MOD16A2][LPX-Bern] Success
+[INFO][0][confront][Evapotranspiration/MOD16A2][OCN] Success
+[INFO][0][confront][Evapotranspiration/MOD16A2][ORCHIDEE] Success
+[INFO][0][confront][Evapotranspiration/MOD16A2][ORCHIDEE-CNP] Success
+[INFO][0][confront][Evapotranspiration/MOD16A2][ORCHIDEEv3] Success
+[INFO][0][confront][Evapotranspiration/MOD16A2][SDGVM] Success
+[INFO][0][confront][Evapotranspiration/MOD16A2][VISIT] Success
+[DEBUG][0][extractTimeSeries][YIBs] Could not find [evapotrans,et] in the model results
+[DEBUG][0][WorkConfront][Evapotranspiration/MOD16A2][YIBs]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][Evapotranspiration/MODIS][CABLE-POP] Success
+[INFO][0][confront][Evapotranspiration/MODIS][CLASSIC] Success
+[INFO][0][confront][Evapotranspiration/MODIS][CLM5] Success
+[INFO][0][confront][Evapotranspiration/MODIS][DLEM] Success
+[INFO][0][confront][Evapotranspiration/MODIS][IBIS] Success
+[INFO][0][confront][Evapotranspiration/MODIS][ISAM] Success
+[INFO][0][confront][Evapotranspiration/MODIS][ISBA-CTRIP] Success
+[INFO][0][confront][Evapotranspiration/MODIS][JSBACH] Success
+[INFO][0][confront][Evapotranspiration/MODIS][JULES] Success
+[INFO][0][confront][Evapotranspiration/MODIS][LPJ-GUESS] Success
+[DEBUG][0][extractTimeSeries][LPJwsl] Could not find [evapotrans,et] in the model results
+[DEBUG][0][WorkConfront][Evapotranspiration/MODIS][LPJwsl]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][Evapotranspiration/MODIS][LPX-Bern] Success
+[INFO][0][confront][Evapotranspiration/MODIS][OCN] Success
+[INFO][0][confront][Evapotranspiration/MODIS][ORCHIDEE] Success
+[INFO][0][confront][Evapotranspiration/MODIS][ORCHIDEE-CNP] Success
+[INFO][0][confront][Evapotranspiration/MODIS][ORCHIDEEv3] Success
+[INFO][0][confront][Evapotranspiration/MODIS][SDGVM] Success
+[INFO][0][confront][Evapotranspiration/MODIS][VISIT] Success
+[DEBUG][0][extractTimeSeries][YIBs] Could not find [evapotrans,et] in the model results
+[DEBUG][0][WorkConfront][Evapotranspiration/MODIS][YIBs]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/CERESed4.1][CABLE-POP] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/CERESed4.1][CLASSIC] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/CERESed4.1][CLM5] Success
+[DEBUG][0][extractTimeSeries][DLEM] Could not find [rsds] in the model results
+[DEBUG][0][WorkConfront][SurfaceDownwellingShortwaveRadiation/CERESed4.1][DLEM]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/CERESed4.1][IBIS] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/CERESed4.1][ISAM] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/CERESed4.1][ISBA-CTRIP] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/CERESed4.1][JSBACH] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/CERESed4.1][JULES] Success
+[DEBUG][0][extractTimeSeries][LPJ-GUESS] Could not find [rsds] in the model results
+[DEBUG][0][WorkConfront][SurfaceDownwellingShortwaveRadiation/CERESed4.1][LPJ-GUESS]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][0][extractTimeSeries][LPJwsl] Could not find [rsds] in the model results
+[DEBUG][0][WorkConfront][SurfaceDownwellingShortwaveRadiation/CERESed4.1][LPJwsl]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/CERESed4.1][LPX-Bern] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/CERESed4.1][OCN] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/CERESed4.1][ORCHIDEE] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/CERESed4.1][ORCHIDEE-CNP] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/CERESed4.1][ORCHIDEEv3] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/CERESed4.1][SDGVM] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/CERESed4.1][VISIT] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/CERESed4.1][YIBs] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/FLUXNET2015][CABLE-POP] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/FLUXNET2015][CLASSIC] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/FLUXNET2015][CLM5] Success
+[DEBUG][0][extractTimeSeries][DLEM] Could not find [rsds] in the model results
+[DEBUG][0][WorkConfront][SurfaceDownwellingShortwaveRadiation/FLUXNET2015][DLEM]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/FLUXNET2015][IBIS] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/FLUXNET2015][ISAM] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/FLUXNET2015][ISBA-CTRIP] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/FLUXNET2015][JSBACH] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/FLUXNET2015][JULES] Success
+[DEBUG][0][extractTimeSeries][LPJ-GUESS] Could not find [rsds] in the model results
+[DEBUG][0][WorkConfront][SurfaceDownwellingShortwaveRadiation/FLUXNET2015][LPJ-GUESS]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][0][extractTimeSeries][LPJwsl] Could not find [rsds] in the model results
+[DEBUG][0][WorkConfront][SurfaceDownwellingShortwaveRadiation/FLUXNET2015][LPJwsl]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/FLUXNET2015][LPX-Bern] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/FLUXNET2015][OCN] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/FLUXNET2015][ORCHIDEE] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/FLUXNET2015][ORCHIDEE-CNP] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/FLUXNET2015][ORCHIDEEv3] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/FLUXNET2015][SDGVM] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/FLUXNET2015][VISIT] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/FLUXNET2015][YIBs] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/GEWEX.SRB][CABLE-POP] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/GEWEX.SRB][CLASSIC] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/GEWEX.SRB][CLM5] Success
+[DEBUG][0][extractTimeSeries][DLEM] Could not find [rsds] in the model results
+[DEBUG][0][WorkConfront][SurfaceDownwellingShortwaveRadiation/GEWEX.SRB][DLEM]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/GEWEX.SRB][IBIS] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/GEWEX.SRB][ISAM] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/GEWEX.SRB][ISBA-CTRIP] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/GEWEX.SRB][JSBACH] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/GEWEX.SRB][JULES] Success
+[DEBUG][0][extractTimeSeries][LPJ-GUESS] Could not find [rsds] in the model results
+[DEBUG][0][WorkConfront][SurfaceDownwellingShortwaveRadiation/GEWEX.SRB][LPJ-GUESS]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][0][extractTimeSeries][LPJwsl] Could not find [rsds] in the model results
+[DEBUG][0][WorkConfront][SurfaceDownwellingShortwaveRadiation/GEWEX.SRB][LPJwsl]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/GEWEX.SRB][LPX-Bern] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/GEWEX.SRB][OCN] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/GEWEX.SRB][ORCHIDEE] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/GEWEX.SRB][ORCHIDEE-CNP] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/GEWEX.SRB][ORCHIDEEv3] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/GEWEX.SRB][SDGVM] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/GEWEX.SRB][VISIT] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/GEWEX.SRB][YIBs] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/WRMC.BSRN][CABLE-POP] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/WRMC.BSRN][CLASSIC] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/WRMC.BSRN][CLM5] Success
+[DEBUG][0][extractTimeSeries][DLEM] Could not find [rsds] in the model results
+[DEBUG][0][WorkConfront][SurfaceDownwellingShortwaveRadiation/WRMC.BSRN][DLEM]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/WRMC.BSRN][IBIS] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/WRMC.BSRN][ISAM] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/WRMC.BSRN][ISBA-CTRIP] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/WRMC.BSRN][JSBACH] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/WRMC.BSRN][JULES] Success
+[DEBUG][0][extractTimeSeries][LPJ-GUESS] Could not find [rsds] in the model results
+[DEBUG][0][WorkConfront][SurfaceDownwellingShortwaveRadiation/WRMC.BSRN][LPJ-GUESS]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][0][extractTimeSeries][LPJwsl] Could not find [rsds] in the model results
+[DEBUG][0][WorkConfront][SurfaceDownwellingShortwaveRadiation/WRMC.BSRN][LPJwsl]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/WRMC.BSRN][LPX-Bern] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/WRMC.BSRN][OCN] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/WRMC.BSRN][ORCHIDEE] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/WRMC.BSRN][ORCHIDEE-CNP] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/WRMC.BSRN][ORCHIDEEv3] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/WRMC.BSRN][SDGVM] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/WRMC.BSRN][VISIT] Success
+[INFO][0][confront][SurfaceDownwellingShortwaveRadiation/WRMC.BSRN][YIBs] Success
+[INFO][0][confront][Precipitation/CMAPv1904][CABLE-POP] Success
+[INFO][0][confront][Precipitation/CMAPv1904][CLASSIC] Success
+[INFO][0][confront][Precipitation/CMAPv1904][CLM5] Success
+[DEBUG][0][extractTimeSeries][DLEM] Could not find [pr] in the model results
+[DEBUG][0][WorkConfront][Precipitation/CMAPv1904][DLEM]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][Precipitation/CMAPv1904][IBIS] Success
+[INFO][0][confront][Precipitation/CMAPv1904][ISAM] Success
+[INFO][0][confront][Precipitation/CMAPv1904][ISBA-CTRIP] Success
+[INFO][0][confront][Precipitation/CMAPv1904][JSBACH] Success
+[INFO][0][confront][Precipitation/CMAPv1904][JULES] Success
+[DEBUG][0][extractTimeSeries][LPJ-GUESS] Could not find [pr] in the model results
+[DEBUG][0][WorkConfront][Precipitation/CMAPv1904][LPJ-GUESS]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][0][extractTimeSeries][LPJwsl] Could not find [pr] in the model results
+[DEBUG][0][WorkConfront][Precipitation/CMAPv1904][LPJwsl]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][Precipitation/CMAPv1904][LPX-Bern] Success
+[INFO][0][confront][Precipitation/CMAPv1904][OCN] Success
+[INFO][0][confront][Precipitation/CMAPv1904][ORCHIDEE] Success
+[INFO][0][confront][Precipitation/CMAPv1904][ORCHIDEE-CNP] Success
+[INFO][0][confront][Precipitation/CMAPv1904][ORCHIDEEv3] Success
+[INFO][0][confront][Precipitation/CMAPv1904][SDGVM] Success
+[INFO][0][confront][Precipitation/CMAPv1904][VISIT] Success
+[DEBUG][0][extractTimeSeries][YIBs] Could not find [pr] in the model results
+[DEBUG][0][WorkConfront][Precipitation/CMAPv1904][YIBs]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][Precipitation/FLUXNET2015][CABLE-POP] Success
+[INFO][0][confront][Precipitation/FLUXNET2015][CLASSIC] Success
+[INFO][0][confront][Precipitation/FLUXNET2015][CLM5] Success
+[DEBUG][0][extractTimeSeries][DLEM] Could not find [pr] in the model results
+[DEBUG][0][WorkConfront][Precipitation/FLUXNET2015][DLEM]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][Precipitation/FLUXNET2015][IBIS] Success
+[INFO][0][confront][Precipitation/FLUXNET2015][ISAM] Success
+[INFO][0][confront][Precipitation/FLUXNET2015][ISBA-CTRIP] Success
+[INFO][0][confront][Precipitation/FLUXNET2015][JSBACH] Success
+[INFO][0][confront][Precipitation/FLUXNET2015][JULES] Success
+[DEBUG][0][extractTimeSeries][LPJ-GUESS] Could not find [pr] in the model results
+[DEBUG][0][WorkConfront][Precipitation/FLUXNET2015][LPJ-GUESS]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][0][extractTimeSeries][LPJwsl] Could not find [pr] in the model results
+[DEBUG][0][WorkConfront][Precipitation/FLUXNET2015][LPJwsl]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][Precipitation/FLUXNET2015][LPX-Bern] Success
+[INFO][0][confront][Precipitation/FLUXNET2015][OCN] Success
+[INFO][0][confront][Precipitation/FLUXNET2015][ORCHIDEE] Success
+[INFO][0][confront][Precipitation/FLUXNET2015][ORCHIDEE-CNP] Success
+[INFO][0][confront][Precipitation/FLUXNET2015][ORCHIDEEv3] Success
+[INFO][0][confront][Precipitation/FLUXNET2015][SDGVM] Success
+[INFO][0][confront][Precipitation/FLUXNET2015][VISIT] Success
+[DEBUG][0][extractTimeSeries][YIBs] Could not find [pr] in the model results
+[DEBUG][0][WorkConfront][Precipitation/FLUXNET2015][YIBs]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][Precipitation/GPCCv2018][CABLE-POP] Success
+[INFO][0][confront][Precipitation/GPCCv2018][CLASSIC] Success
+[INFO][0][confront][Precipitation/GPCCv2018][CLM5] Success
+[DEBUG][0][extractTimeSeries][DLEM] Could not find [pr] in the model results
+[DEBUG][0][WorkConfront][Precipitation/GPCCv2018][DLEM]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][Precipitation/GPCCv2018][IBIS] Success
+[INFO][0][confront][Precipitation/GPCCv2018][ISAM] Success
+[INFO][0][confront][Precipitation/GPCCv2018][ISBA-CTRIP] Success
+[INFO][0][confront][Precipitation/GPCCv2018][JSBACH] Success
+[INFO][0][confront][Precipitation/GPCCv2018][JULES] Success
+[DEBUG][0][extractTimeSeries][LPJ-GUESS] Could not find [pr] in the model results
+[DEBUG][0][WorkConfront][Precipitation/GPCCv2018][LPJ-GUESS]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][0][extractTimeSeries][LPJwsl] Could not find [pr] in the model results
+[DEBUG][0][WorkConfront][Precipitation/GPCCv2018][LPJwsl]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][Precipitation/GPCCv2018][LPX-Bern] Success
+[INFO][0][confront][Precipitation/GPCCv2018][OCN] Success
+[INFO][0][confront][Precipitation/GPCCv2018][ORCHIDEE] Success
+[INFO][0][confront][Precipitation/GPCCv2018][ORCHIDEE-CNP] Success
+[INFO][0][confront][Precipitation/GPCCv2018][ORCHIDEEv3] Success
+[INFO][0][confront][Precipitation/GPCCv2018][SDGVM] Success
+[INFO][0][confront][Precipitation/GPCCv2018][VISIT] Success
+[DEBUG][0][extractTimeSeries][YIBs] Could not find [pr] in the model results
+[DEBUG][0][WorkConfront][Precipitation/GPCCv2018][YIBs]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][Precipitation/GPCPv2.3][CABLE-POP] Success
+[INFO][0][confront][Precipitation/GPCPv2.3][CLASSIC] Success
+[INFO][0][confront][Precipitation/GPCPv2.3][CLM5] Success
+[DEBUG][0][extractTimeSeries][DLEM] Could not find [pr] in the model results
+[DEBUG][0][WorkConfront][Precipitation/GPCPv2.3][DLEM]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][Precipitation/GPCPv2.3][IBIS] Success
+[INFO][0][confront][Precipitation/GPCPv2.3][ISAM] Success
+[INFO][0][confront][Precipitation/GPCPv2.3][ISBA-CTRIP] Success
+[INFO][0][confront][Precipitation/GPCPv2.3][JSBACH] Success
+[INFO][0][confront][Precipitation/GPCPv2.3][JULES] Success
+[DEBUG][0][extractTimeSeries][LPJ-GUESS] Could not find [pr] in the model results
+[DEBUG][0][WorkConfront][Precipitation/GPCPv2.3][LPJ-GUESS]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][0][extractTimeSeries][LPJwsl] Could not find [pr] in the model results
+[DEBUG][0][WorkConfront][Precipitation/GPCPv2.3][LPJwsl]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][Precipitation/GPCPv2.3][LPX-Bern] Success
+[INFO][0][confront][Precipitation/GPCPv2.3][OCN] Success
+[INFO][0][confront][Precipitation/GPCPv2.3][ORCHIDEE] Success
+[INFO][0][confront][Precipitation/GPCPv2.3][ORCHIDEE-CNP] Success
+[INFO][0][confront][Precipitation/GPCPv2.3][ORCHIDEEv3] Success
+[INFO][0][confront][Precipitation/GPCPv2.3][SDGVM] Success
+[INFO][0][confront][Precipitation/GPCPv2.3][VISIT] Success
+[DEBUG][0][extractTimeSeries][YIBs] Could not find [pr] in the model results
+[DEBUG][0][WorkConfront][Precipitation/GPCPv2.3][YIBs]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][NearSurfaceAirTemperature/CRU4.02][CABLE-POP] Success
+[INFO][0][confront][NearSurfaceAirTemperature/CRU4.02][CLASSIC] Success
+[INFO][0][confront][NearSurfaceAirTemperature/CRU4.02][CLM5] Success
+[DEBUG][0][extractTimeSeries][DLEM] Could not find [tas] in the model results
+[DEBUG][0][WorkConfront][NearSurfaceAirTemperature/CRU4.02][DLEM]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][NearSurfaceAirTemperature/CRU4.02][IBIS] Success
+[INFO][0][confront][NearSurfaceAirTemperature/CRU4.02][ISAM] Success
+[INFO][0][confront][NearSurfaceAirTemperature/CRU4.02][ISBA-CTRIP] Success
+[INFO][0][confront][NearSurfaceAirTemperature/CRU4.02][JSBACH] Success
+[INFO][0][confront][NearSurfaceAirTemperature/CRU4.02][JULES] Success
+[DEBUG][0][extractTimeSeries][LPJ-GUESS] Could not find [tas] in the model results
+[DEBUG][0][WorkConfront][NearSurfaceAirTemperature/CRU4.02][LPJ-GUESS]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][0][extractTimeSeries][LPJwsl] Could not find [tas] in the model results
+[DEBUG][0][WorkConfront][NearSurfaceAirTemperature/CRU4.02][LPJwsl]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][NearSurfaceAirTemperature/CRU4.02][LPX-Bern] Success
+[INFO][0][confront][NearSurfaceAirTemperature/CRU4.02][OCN] Success
+[INFO][0][confront][NearSurfaceAirTemperature/CRU4.02][ORCHIDEE] Success
+[INFO][0][confront][NearSurfaceAirTemperature/CRU4.02][ORCHIDEE-CNP] Success
+[INFO][0][confront][NearSurfaceAirTemperature/CRU4.02][ORCHIDEEv3] Success
+[INFO][0][confront][NearSurfaceAirTemperature/CRU4.02][SDGVM] Success
+[INFO][0][confront][NearSurfaceAirTemperature/CRU4.02][VISIT] Success
+[INFO][0][confront][NearSurfaceAirTemperature/CRU4.02][YIBs] Success
+[INFO][0][confront][NearSurfaceAirTemperature/FLUXNET2015][CABLE-POP] Success
+[INFO][0][confront][NearSurfaceAirTemperature/FLUXNET2015][CLASSIC] Success
+[INFO][0][confront][NearSurfaceAirTemperature/FLUXNET2015][CLM5] Success
+[DEBUG][0][extractTimeSeries][DLEM] Could not find [tas] in the model results
+[DEBUG][0][WorkConfront][NearSurfaceAirTemperature/FLUXNET2015][DLEM]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][NearSurfaceAirTemperature/FLUXNET2015][IBIS] Success
+[INFO][0][confront][NearSurfaceAirTemperature/FLUXNET2015][ISAM] Success
+[INFO][0][confront][NearSurfaceAirTemperature/FLUXNET2015][ISBA-CTRIP] Success
+[INFO][0][confront][NearSurfaceAirTemperature/FLUXNET2015][JSBACH] Success
+[INFO][0][confront][NearSurfaceAirTemperature/FLUXNET2015][JULES] Success
+[DEBUG][0][extractTimeSeries][LPJ-GUESS] Could not find [tas] in the model results
+[DEBUG][0][WorkConfront][NearSurfaceAirTemperature/FLUXNET2015][LPJ-GUESS]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][0][extractTimeSeries][LPJwsl] Could not find [tas] in the model results
+[DEBUG][0][WorkConfront][NearSurfaceAirTemperature/FLUXNET2015][LPJwsl]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/ilamb/bin/ilamb-run", line 384, in WorkConfront
+    c.confront(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 349, in confront
+    obs,mod = self.stageData(m)
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/Confrontation.py", line 296, in stageData
+    mod = m.extractTimeSeries(self.variable,
+  File "/opt/miniconda3/envs/ilamb/lib/python3.9/site-packages/ILAMB/ModelResult.py", line 326, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][NearSurfaceAirTemperature/FLUXNET2015][LPX-Bern] Success
+[INFO][0][confront][NearSurfaceAirTemperature/FLUXNET2015][OCN] Success
+[INFO][0][confront][NearSurfaceAirTemperature/FLUXNET2015][ORCHIDEE] Success
+[INFO][0][confront][NearSurfaceAirTemperature/FLUXNET2015][ORCHIDEE-CNP] Success
+[INFO][0][confront][NearSurfaceAirTemperature/FLUXNET2015][ORCHIDEEv3] Success
+[INFO][0][confront][NearSurfaceAirTemperature/FLUXNET2015][SDGVM] Success
+[INFO][0][confront][NearSurfaceAirTemperature/FLUXNET2015][VISIT] Success
+[INFO][0][confront][NearSurfaceAirTemperature/FLUXNET2015][YIBs] Success
