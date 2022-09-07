@@ -1,0 +1,862 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.16.5/math.min.js"></script>
+    <script>
+        function getQueryVariable(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i=0;i<vars.length;i++) {
+                var pair = vars[i].split("=");
+                if(pair[0] == variable){return pair[1];}
+            }
+            return(false);
+        }
+    </script>
+    <script type='text/javascript'>
+        function pageLoad() {
+           pageLoadMeanState();
+        }
+    </script>
+    <script type='text/javascript'>
+
+        function updateImagesAndHeadersMeanState(){
+            var rsel  = document.getElementById("MeanStateRegion");
+            var msel  = document.getElementById("MeanStateModel");
+            var rid   = rsel.selectedIndex;
+            var mid   = msel.selectedIndex;
+            var RNAME = rsel.options[rid].value;
+            var MNAME = msel.options[mid].value;
+            var CNAME = "NearSurfaceAirTemperature / ABoVE_Vimal / 1979-2018";
+            var head  = "CNAME / RNAME / MNAME";
+            head      = head.replace("CNAME",CNAME).replace("RNAME",RNAME).replace("MNAME",MNAME);
+            $("#MeanStateHead").text(head);
+            
+          document.getElementById('timeint').src =  MNAME + '_' + RNAME + '_timeint.png'
+          document.getElementById('benchmark_timeint').src =  'Benchmark_' + RNAME + '_timeint.png'
+          document.getElementById('phase').src =  MNAME + '_' + RNAME + '_phase.png'
+          document.getElementById('benchmark_phase').src =  'Benchmark_' + RNAME + '_phase.png'
+          document.getElementById('shift').src =  MNAME + '_' + RNAME + '_shift.png'
+          document.getElementById('shiftscore').src =  MNAME + '_' + RNAME + '_shiftscore.png'
+          document.getElementById('bias').src =  MNAME + '_' + RNAME + '_bias.png'
+          document.getElementById('biasscore').src =  MNAME + '_' + RNAME + '_biasscore.png'
+          document.getElementById('rmse').src =  MNAME + '_' + RNAME + '_rmse.png'
+          document.getElementById('rmsescore').src =  MNAME + '_' + RNAME + '_rmsescore.png'
+          document.getElementById('spatial_variance').src =  RNAME + '_spatial_variance.png'
+          document.getElementById('legend_spatial_variance').src =  'legend_spatial_variance.png'
+          document.getElementById('cycle').src =  MNAME + '_' + RNAME + '_cycle.png'
+          document.getElementById('dtcycle').src =  MNAME + '_' + RNAME + '_dtcycle.png'
+          document.getElementById('spaceint').src =  MNAME + '_' + RNAME + '_spaceint.png'
+          document.getElementById('compcycle').src =  RNAME + '_compcycle.png'
+          document.getElementById('legend_compcycle').src =  'legend_compcycle.png'
+        }
+
+        function highlightRowMeanState(cell) {
+            var select = document.getElementById("MeanStateRegion");
+            for (var i = 0; i < select.length; i++){
+                var table = document.getElementById("MeanState_table_" + select.options[i].value);
+                var rows  = table.getElementsByTagName("tr");
+                for (var r = 2; r < rows.length; r++) {
+                    for (var c = 0; c < rows[r].cells.length-6; c++) {
+                        rows[r].cells[c].style.backgroundColor = "#ffffff";
+                    }
+                }
+                var r = cell.closest("tr").rowIndex;
+                document.getElementById("MeanStateModel").selectedIndex = r-1;
+                for (var c = 0; c < rows[r].cells.length-6; c++) {
+                    rows[r].cells[c].style.backgroundColor = "#c1c1c1";
+                }
+            }
+            updateImagesAndHeadersMeanState();
+        }
+
+        function paintScoreCellsMeanState(RNAME) {
+
+	    var PuOr = ['#b35806','#e08214','#fdb863','#fee0b6','#f7f7f7','#d8daeb','#b2abd2','#8073ac','#542788'];
+	    var GnRd = ['#b2182b','#d6604d','#f4a582','#fddbc7','#f7f7f7','#d9f0d3','#a6dba0','#5aae61','#1b7837'];
+	    var colors = GnRd;
+            var nc = colors.length;
+            var table  = document.getElementById("MeanState_table_" + RNAME);
+            var rows   = table.getElementsByTagName("tr");
+            for (var c = rows[0].cells.length-5; c < rows[0].cells.length; c++) {
+                var scores = [];
+                for (var r = 2; r < rows.length; r++) {
+                    val = rows[r].cells[c].innerHTML;
+                    if (val=="") {
+                      scores[r-2] = 0;
+                    }else{
+                      scores[r-2] = parseFloat(val);
+                    }
+                }
+                var mean = math.mean(scores);
+                var std  = math.max(0.02,math.std(scores));
+                for (var r = 2; r < rows.length; r++) {
+                    scores[r-2] = Math.min(+2,Math.max(-2,(scores[r-2]-mean)/std));
+                }
+                for (var r = 2; r < rows.length; r++) {
+		    var e  = scores[r-2];
+                    var ae = Math.abs(e);
+                    var clr;
+                    if(ae >= 0.25){
+                      clr = math.round(2*e+4);
+                    }else{
+		      clr = math.round(4*e+4);
+                    }
+                    clr = math.min(math.max(0,clr),8);
+                    rows[r].cells[c].style.backgroundColor = colors[clr];
+                }
+            }
+        }
+
+        function pageLoadMeanState() {
+            var select = document.getElementById("MeanStateRegion");
+            var region = getQueryVariable("region");
+            var model  = getQueryVariable("model");
+            if (region) {
+                for (var i = 0; i < select.length; i++){
+                    if (select.options[i].value == region) select.selectedIndex = i;
+                }
+            }
+            var table = document.getElementById("MeanState_table_" + select.options[select.selectedIndex].value);
+            var rows  = table.getElementsByTagName("tr");
+            if (model) {
+                for (var r = 0; r < rows.length; r++) {
+                    if(rows[r].cells[0].innerHTML==model) highlightRowMeanState(rows[r].cells[0]);
+                }
+            }else{
+                highlightRowMeanState(rows[2]);
+            }
+            for (var i = 0; i < select.length; i++){
+                paintScoreCellsMeanState(select.options[i].value);
+            }
+            changeRegionMeanState();
+        }
+
+        function changeRegionMeanState() {
+            var select = document.getElementById("MeanStateRegion");
+            for (var i = 0; i < select.length; i++){
+                RNAME = select.options[i].value;
+                if (i == select.selectedIndex) {
+                    document.getElementById("MeanState_table_" + RNAME).style.display = "table";
+                }else{
+                    document.getElementById("MeanState_table_" + RNAME).style.display = "none";
+                }
+            }
+            updateImagesAndHeadersMeanState();
+        }
+      function AllSelect() {
+        var header = "CNAME / RNAME / MNAME";
+        var CNAME  = "NearSurfaceAirTemperature / ABoVE_Vimal / 1979-2018";
+        header     = header.replace("CNAME",CNAME);
+        var rid    = document.getElementById("AllModelsRegion").selectedIndex;
+        var RNAME  = document.getElementById("AllModelsRegion").options[rid].value;
+        var pid    = document.getElementById("AllModelsPlot").selectedIndex;
+        var PNAME  = document.getElementById("AllModelsPlot").options[pid].value;
+        header     = header.replace("RNAME",RNAME);
+        $("#AllModelsHead").text(header);
+        if(PNAME == "shift" || PNAME == "shiftscore" || PNAME == "bias" || PNAME == "biasscore" || PNAME == "rmse" || PNAME == "rmsescore" || PNAME == "cycle" || PNAME == "dtcycle" || PNAME == "spaceint"){
+          document.getElementById("Benchmark_div").style.display = 'none';
+        }else{
+          document.getElementById("Benchmark_div").style.display = 'inline';
+        }
+        if(PNAME == "cycle" || PNAME == "dtcycle" || PNAME == "spaceint"){
+          document.getElementById("Benchmark_legend").style.display = 'none';
+          document.getElementById("CABLE-POP_legend").style.display = 'none';
+          document.getElementById("CLM5_legend").style.display = 'none';
+          document.getElementById("IBIS_legend").style.display = 'none';
+          document.getElementById("ISAM_legend").style.display = 'none';
+          document.getElementById("ISBA-CTRIP_legend").style.display = 'none';
+          document.getElementById("JULES_legend").style.display = 'none';
+          document.getElementById("LPX-Bern_legend").style.display = 'none';
+          document.getElementById("ORCHIDEE_legend").style.display = 'none';
+          document.getElementById("ORCHIDEE-CNP_legend").style.display = 'none';
+          document.getElementById("ORCHIDEEv3_legend").style.display = 'none';
+          document.getElementById("SDGVM_legend").style.display = 'none';
+          document.getElementById("VISIT_legend").style.display = 'none';
+          document.getElementById("YIBs_legend").style.display = 'none';
+        }else{
+          document.getElementById("Benchmark_legend").style.display = 'inline';
+          document.getElementById("CABLE-POP_legend").style.display = 'inline';
+          document.getElementById("CLM5_legend").style.display = 'inline';
+          document.getElementById("IBIS_legend").style.display = 'inline';
+          document.getElementById("ISAM_legend").style.display = 'inline';
+          document.getElementById("ISBA-CTRIP_legend").style.display = 'inline';
+          document.getElementById("JULES_legend").style.display = 'inline';
+          document.getElementById("LPX-Bern_legend").style.display = 'inline';
+          document.getElementById("ORCHIDEE_legend").style.display = 'inline';
+          document.getElementById("ORCHIDEE-CNP_legend").style.display = 'inline';
+          document.getElementById("ORCHIDEEv3_legend").style.display = 'inline';
+          document.getElementById("SDGVM_legend").style.display = 'inline';
+          document.getElementById("VISIT_legend").style.display = 'inline';
+          document.getElementById("YIBs_legend").style.display = 'inline';
+        }
+        document.getElementById('Benchmark').src = 'Benchmark_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('Benchmark_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('CABLE-POP').src = 'CABLE-POP_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('CABLE-POP_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('CLM5').src = 'CLM5_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('CLM5_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('IBIS').src = 'IBIS_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('IBIS_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('ISAM').src = 'ISAM_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('ISAM_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('ISBA-CTRIP').src = 'ISBA-CTRIP_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('ISBA-CTRIP_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('JULES').src = 'JULES_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('JULES_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('LPX-Bern').src = 'LPX-Bern_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('LPX-Bern_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('ORCHIDEE').src = 'ORCHIDEE_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('ORCHIDEE_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('ORCHIDEE-CNP').src = 'ORCHIDEE-CNP_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('ORCHIDEE-CNP_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('ORCHIDEEv3').src = 'ORCHIDEEv3_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('ORCHIDEEv3_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('SDGVM').src = 'SDGVM_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('SDGVM_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('VISIT').src = 'VISIT_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('VISIT_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('YIBs').src = 'YIBs_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('YIBs_legend').src = 'legend_' + PNAME + '.png';
+      }
+
+      $(document).on('pageshow', '[data-role="page"]', function(){
+        AllSelect()
+      });
+    </script>
+    <style type="text/css">
+      .container{
+        display:inline;
+      }
+      .break{
+        clear:left;
+      }
+      .child{
+        margin-bottom:10px;
+        display:inline-block;
+        padding:5px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      table.table-header-rotated {
+          border-collapse: collapse;
+      }
+      td {
+          text-align: center;
+          padding: 10px 5px;
+          border: 1px solid #ccc;
+      }
+      th {
+          padding: 5px 10px;
+      }
+      th.rotate {
+          height: 280px;
+          white-space: nowrap;
+      }
+      th.rotate > div {
+          transform: translate(10px, 135px) rotate(-45deg);
+          width: 0px;
+      }
+      th.rotate > div > span {
+      }
+      th.row-header {
+          padding: 0px 10px;
+          text-align: right;
+      }
+      td.divider {
+          width: 0px;
+          border: 0px solid #ccc;
+          padding: 0px 0px
+      }
+    </style>
+  </head>
+  <body onload="pageLoad()">
+    <div data-role="page" id="MeanState">
+      <div data-role="header" data-position="fixed" data-tap-toggle="false">
+        <h1 id="MeanStateHead">Mean State</h1>
+        <div data-role="navbar">
+          <ul>
+            <li><a href='#MeanState' class=ui-btn-active ui-state-persist>Mean State</a></li>
+            <li><a href='#AllModels'>All Models</a></li>
+            <li><a href='#DataInformation'>Data Information</a></li>
+          </ul>
+        </div>
+      </div>
+      <select id="MeanStateRegion" onchange="changeRegionMeanState()">
+        <option value='bona' selected="selected">Boreal North America</option>
+      </select>
+      <div style="display:none">
+      <select id="MeanStateModel">
+        <option value='Benchmark'>Benchmark</option>
+        <option value='CABLE-POP' selected="selected">CABLE-POP</option>
+        <option value='CLM5'>CLM5</option>
+        <option value='IBIS'>IBIS</option>
+        <option value='ISAM'>ISAM</option>
+        <option value='ISBA-CTRIP'>ISBA-CTRIP</option>
+        <option value='JULES'>JULES</option>
+        <option value='LPX-Bern'>LPX-Bern</option>
+        <option value='ORCHIDEE'>ORCHIDEE</option>
+        <option value='ORCHIDEE-CNP'>ORCHIDEE-CNP</option>
+        <option value='ORCHIDEEv3'>ORCHIDEEv3</option>
+        <option value='SDGVM'>SDGVM</option>
+        <option value='VISIT'>VISIT</option>
+        <option value='YIBs'>YIBs</option>
+      </select>
+      </div>
+        <center>
+        <table class="table-header-rotated" id="MeanState_table_bona">
+           <thead>
+             <tr>
+               <th></th>
+               <th class="rotate"><div><span>Download Data</span></div></th>
+               <th class="rotate"><div><span>Period Mean (original grids) [K]</span></div></th>
+               <th class="rotate"><div><span>Model Period Mean (intersection) [K]</span></div></th>
+               <th class="rotate"><div><span>Benchmark Period Mean (intersection) [K]</span></div></th>
+               <th class="rotate"><div><span>Model Period Mean (complement) [K]</span></div></th>
+               <th class="rotate"><div><span>Benchmark Period Mean (complement) [K]</span></div></th>
+               <th></th>
+               <th class="rotate"><div><span>Bias [K]</span></div></th>
+               <th class="rotate"><div><span>RMSE [K]</span></div></th>
+               <th class="rotate"><div><span>Phase Shift [months]</span></div></th>
+               <th></th>
+               <th class="rotate"><div><span>Bias Score [1]</span></div></th>
+               <th class="rotate"><div><span>RMSE Score [1]</span></div></th>
+               <th class="rotate"><div><span>Seasonal Cycle Score [1]</span></div></th>
+               <th class="rotate"><div><span>Spatial Distribution Score [1]</span></div></th>
+               <th class="rotate"><div><span>Overall Score [1]</span></div></th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <td class="row-header">Benchmark</td>
+               <td><a href="ABoVE_Vimal_Benchmark.nc" download>[-]</a></td>
+               <td>267.</td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td class="divider"></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td class="divider"></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">CABLE-POP</td>
+               <td onclick="highlightRowMeanState(this)"><a href="ABoVE_Vimal_CABLE-POP.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">267.</td>
+               <td onclick="highlightRowMeanState(this)">267.</td>
+               <td onclick="highlightRowMeanState(this)">267.</td>
+               <td onclick="highlightRowMeanState(this)">258.</td>
+               <td onclick="highlightRowMeanState(this)">265.</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.279</td>
+               <td onclick="highlightRowMeanState(this)">1.84</td>
+               <td onclick="highlightRowMeanState(this)">0.0395</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.920</td>
+               <td onclick="highlightRowMeanState(this)">0.900</td>
+               <td onclick="highlightRowMeanState(this)">0.997</td>
+               <td onclick="highlightRowMeanState(this)">0.999</td>
+               <td onclick="highlightRowMeanState(this)">0.943</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">CLM5</td>
+               <td onclick="highlightRowMeanState(this)"><a href="ABoVE_Vimal_CLM5.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">266.</td>
+               <td onclick="highlightRowMeanState(this)">267.</td>
+               <td onclick="highlightRowMeanState(this)">267.</td>
+               <td onclick="highlightRowMeanState(this)">262.</td>
+               <td onclick="highlightRowMeanState(this)">270.</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.242</td>
+               <td onclick="highlightRowMeanState(this)">1.91</td>
+               <td onclick="highlightRowMeanState(this)">0.0511</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.920</td>
+               <td onclick="highlightRowMeanState(this)">0.895</td>
+               <td onclick="highlightRowMeanState(this)">0.997</td>
+               <td onclick="highlightRowMeanState(this)">1.00</td>
+               <td onclick="highlightRowMeanState(this)">0.941</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">IBIS</td>
+               <td onclick="highlightRowMeanState(this)"><a href="ABoVE_Vimal_IBIS.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">267.</td>
+               <td onclick="highlightRowMeanState(this)">268.</td>
+               <td onclick="highlightRowMeanState(this)">267.</td>
+               <td onclick="highlightRowMeanState(this)">265.</td>
+               <td onclick="highlightRowMeanState(this)">268.</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">1.09</td>
+               <td onclick="highlightRowMeanState(this)">2.28</td>
+               <td onclick="highlightRowMeanState(this)">0.0580</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.897</td>
+               <td onclick="highlightRowMeanState(this)">0.884</td>
+               <td onclick="highlightRowMeanState(this)">0.996</td>
+               <td onclick="highlightRowMeanState(this)">1.00</td>
+               <td onclick="highlightRowMeanState(this)">0.932</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">ISAM</td>
+               <td onclick="highlightRowMeanState(this)"><a href="ABoVE_Vimal_ISAM.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">268.</td>
+               <td onclick="highlightRowMeanState(this)">268.</td>
+               <td onclick="highlightRowMeanState(this)">267.</td>
+               <td onclick="highlightRowMeanState(this)">263.</td>
+               <td onclick="highlightRowMeanState(this)">265.</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">1.21</td>
+               <td onclick="highlightRowMeanState(this)">2.25</td>
+               <td onclick="highlightRowMeanState(this)">0.0479</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.896</td>
+               <td onclick="highlightRowMeanState(this)">0.887</td>
+               <td onclick="highlightRowMeanState(this)">0.997</td>
+               <td onclick="highlightRowMeanState(this)">1.00</td>
+               <td onclick="highlightRowMeanState(this)">0.933</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">ISBA-CTRIP</td>
+               <td onclick="highlightRowMeanState(this)"><a href="ABoVE_Vimal_ISBA-CTRIP.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">267.</td>
+               <td onclick="highlightRowMeanState(this)">268.</td>
+               <td onclick="highlightRowMeanState(this)">267.</td>
+               <td onclick="highlightRowMeanState(this)">264.</td>
+               <td onclick="highlightRowMeanState(this)">268.</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">1.05</td>
+               <td onclick="highlightRowMeanState(this)">2.26</td>
+               <td onclick="highlightRowMeanState(this)">0.0588</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.898</td>
+               <td onclick="highlightRowMeanState(this)">0.884</td>
+               <td onclick="highlightRowMeanState(this)">0.996</td>
+               <td onclick="highlightRowMeanState(this)">1.00</td>
+               <td onclick="highlightRowMeanState(this)">0.933</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">JULES</td>
+               <td onclick="highlightRowMeanState(this)"><a href="ABoVE_Vimal_JULES.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">267.</td>
+               <td onclick="highlightRowMeanState(this)">268.</td>
+               <td onclick="highlightRowMeanState(this)">267.</td>
+               <td onclick="highlightRowMeanState(this)">264.</td>
+               <td onclick="highlightRowMeanState(this)">268.</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">1.05</td>
+               <td onclick="highlightRowMeanState(this)">2.23</td>
+               <td onclick="highlightRowMeanState(this)">0.0616</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.897</td>
+               <td onclick="highlightRowMeanState(this)">0.887</td>
+               <td onclick="highlightRowMeanState(this)">0.996</td>
+               <td onclick="highlightRowMeanState(this)">0.999</td>
+               <td onclick="highlightRowMeanState(this)">0.933</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">LPX-Bern</td>
+               <td onclick="highlightRowMeanState(this)"><a href="ABoVE_Vimal_LPX-Bern.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">268.</td>
+               <td onclick="highlightRowMeanState(this)">268.</td>
+               <td onclick="highlightRowMeanState(this)">267.</td>
+               <td onclick="highlightRowMeanState(this)">264.</td>
+               <td onclick="highlightRowMeanState(this)">264.</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">1.16</td>
+               <td onclick="highlightRowMeanState(this)">2.24</td>
+               <td onclick="highlightRowMeanState(this)">0.0555</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.896</td>
+               <td onclick="highlightRowMeanState(this)">0.886</td>
+               <td onclick="highlightRowMeanState(this)">0.996</td>
+               <td onclick="highlightRowMeanState(this)">1.00</td>
+               <td onclick="highlightRowMeanState(this)">0.933</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">ORCHIDEE</td>
+               <td onclick="highlightRowMeanState(this)"><a href="ABoVE_Vimal_ORCHIDEE.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">268.</td>
+               <td onclick="highlightRowMeanState(this)">268.</td>
+               <td onclick="highlightRowMeanState(this)">267.</td>
+               <td onclick="highlightRowMeanState(this)">263.</td>
+               <td onclick="highlightRowMeanState(this)">266.</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">1.16</td>
+               <td onclick="highlightRowMeanState(this)">2.24</td>
+               <td onclick="highlightRowMeanState(this)">0.0553</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.896</td>
+               <td onclick="highlightRowMeanState(this)">0.886</td>
+               <td onclick="highlightRowMeanState(this)">0.996</td>
+               <td onclick="highlightRowMeanState(this)">1.00</td>
+               <td onclick="highlightRowMeanState(this)">0.933</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">ORCHIDEE-CNP</td>
+               <td onclick="highlightRowMeanState(this)"><a href="ABoVE_Vimal_ORCHIDEE-CNP.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">267.</td>
+               <td onclick="highlightRowMeanState(this)">268.</td>
+               <td onclick="highlightRowMeanState(this)">267.</td>
+               <td onclick="highlightRowMeanState(this)">266.</td>
+               <td onclick="highlightRowMeanState(this)">270.</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">1.14</td>
+               <td onclick="highlightRowMeanState(this)">2.35</td>
+               <td onclick="highlightRowMeanState(this)">0.0644</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.889</td>
+               <td onclick="highlightRowMeanState(this)">0.882</td>
+               <td onclick="highlightRowMeanState(this)">0.996</td>
+               <td onclick="highlightRowMeanState(this)">0.999</td>
+               <td onclick="highlightRowMeanState(this)">0.930</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">ORCHIDEEv3</td>
+               <td onclick="highlightRowMeanState(this)"><a href="ABoVE_Vimal_ORCHIDEEv3.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">268.</td>
+               <td onclick="highlightRowMeanState(this)">268.</td>
+               <td onclick="highlightRowMeanState(this)">267.</td>
+               <td onclick="highlightRowMeanState(this)">263.</td>
+               <td onclick="highlightRowMeanState(this)">266.</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">1.16</td>
+               <td onclick="highlightRowMeanState(this)">2.24</td>
+               <td onclick="highlightRowMeanState(this)">0.0553</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.896</td>
+               <td onclick="highlightRowMeanState(this)">0.886</td>
+               <td onclick="highlightRowMeanState(this)">0.996</td>
+               <td onclick="highlightRowMeanState(this)">1.00</td>
+               <td onclick="highlightRowMeanState(this)">0.933</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">SDGVM</td>
+               <td onclick="highlightRowMeanState(this)"><a href="ABoVE_Vimal_SDGVM.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">268.</td>
+               <td onclick="highlightRowMeanState(this)">268.</td>
+               <td onclick="highlightRowMeanState(this)">267.</td>
+               <td onclick="highlightRowMeanState(this)">264.</td>
+               <td onclick="highlightRowMeanState(this)">266.</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">1.16</td>
+               <td onclick="highlightRowMeanState(this)">2.27</td>
+               <td onclick="highlightRowMeanState(this)">0.0508</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.896</td>
+               <td onclick="highlightRowMeanState(this)">0.886</td>
+               <td onclick="highlightRowMeanState(this)">0.997</td>
+               <td onclick="highlightRowMeanState(this)">1.00</td>
+               <td onclick="highlightRowMeanState(this)">0.933</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">VISIT</td>
+               <td onclick="highlightRowMeanState(this)"><a href="ABoVE_Vimal_VISIT.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">268.</td>
+               <td onclick="highlightRowMeanState(this)">268.</td>
+               <td onclick="highlightRowMeanState(this)">267.</td>
+               <td onclick="highlightRowMeanState(this)">262.</td>
+               <td onclick="highlightRowMeanState(this)">265.</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">1.13</td>
+               <td onclick="highlightRowMeanState(this)">2.24</td>
+               <td onclick="highlightRowMeanState(this)">0.0441</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.900</td>
+               <td onclick="highlightRowMeanState(this)">0.888</td>
+               <td onclick="highlightRowMeanState(this)">0.997</td>
+               <td onclick="highlightRowMeanState(this)">1.00</td>
+               <td onclick="highlightRowMeanState(this)">0.935</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">YIBs</td>
+               <td onclick="highlightRowMeanState(this)"><a href="ABoVE_Vimal_YIBs.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">268.</td>
+               <td onclick="highlightRowMeanState(this)">268.</td>
+               <td onclick="highlightRowMeanState(this)">267.</td>
+               <td onclick="highlightRowMeanState(this)">265.</td>
+               <td onclick="highlightRowMeanState(this)">266.</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">1.07</td>
+               <td onclick="highlightRowMeanState(this)">2.29</td>
+               <td onclick="highlightRowMeanState(this)">0.0622</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.897</td>
+               <td onclick="highlightRowMeanState(this)">0.882</td>
+               <td onclick="highlightRowMeanState(this)">0.996</td>
+               <td onclick="highlightRowMeanState(this)">1.00</td>
+               <td onclick="highlightRowMeanState(this)">0.931</td>
+             </tr>
+          </tbody>
+        </table>
+        </center>
+        <div data-role="collapsible" data-collapsed="false"><h1>Temporally integrated period mean</h1>
+        <div class="container" id="benchmark_timeint_div">
+          <div class="child">
+          <center>BENCHMARK&nbsp;MEAN</center>
+          <img src="" id="benchmark_timeint" alt="Data not available" ></img>
+          <center><img src="legend_timeint.png" id="leg"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="timeint_div">
+          <div class="child">
+          <center>MODEL&nbsp;MEAN</center>
+          <img src="" id="timeint" alt="Data not available" ></img>
+          <center><img src="legend_timeint.png" id="leg"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="bias_div">
+          <div class="child">
+          <center>BIAS</center>
+          <img src="" id="bias" alt="Data not available" ></img>
+          <center><img src="legend_bias.png" id="leg"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="biasscore_div">
+          <div class="child">
+          <center>BIAS&nbsp;SCORE</center>
+          <img src="" id="biasscore" alt="Data not available" ></img>
+          <center><img src="legend_biasscore.png" id="leg"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="rmse_div">
+          <div class="child">
+          <center>RMSE</center>
+          <img src="" id="rmse" alt="Data not available" ></img>
+          <center><img src="legend_rmse.png" id="leg"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="rmsescore_div">
+          <div class="child">
+          <center>RMSE&nbsp;SCORE</center>
+          <img src="" id="rmsescore" alt="Data not available" ></img>
+          <center><img src="legend_rmsescore.png" id="leg"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="benchmark_phase_div">
+          <div class="child">
+          <center>BENCHMARK&nbsp;MAX&nbsp;MONTH</center>
+          <img src="" id="benchmark_phase" alt="Data not available" ></img>
+          <center><img src="legend_phase.png" id="leg"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="phase_div">
+          <div class="child">
+          <center>MODEL&nbsp;MAX&nbsp;MONTH</center>
+          <img src="" id="phase" alt="Data not available" ></img>
+          <center><img src="legend_phase.png" id="leg"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="shift_div">
+          <div class="child">
+          <center>DIFFERENCE&nbsp;IN&nbsp;MAX&nbsp;MONTH</center>
+          <img src="" id="shift" alt="Data not available" ></img>
+          <center><img src="legend_shift.png" id="leg"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="shiftscore_div">
+          <div class="child">
+          <center>SEASONAL&nbsp;CYCLE&nbsp;SCORE</center>
+          <img src="" id="shiftscore" alt="Data not available" ></img>
+          <center><img src="legend_shiftscore.png" id="leg"  alt="Data not available" ></img></center>
+          </div>
+        </div><br>
+        <div class="container" id="spatial_variance_div">
+          <div class="child">
+          <center>SPATIAL&nbsp;TAYLOR&nbsp;DIAGRAM</center>
+          <img src="" id="spatial_variance" alt="Data not available" ></img>
+          </div>
+        </div>
+        <div class="container" id="legend_spatial_variance_div">
+          <div class="child">
+          <center>MODEL&nbsp;COLORS</center>
+          <img src="" id="legend_spatial_variance" alt="Data not available" ></img>
+          </div>
+        </div>
+        </div>
+        <div data-role="collapsible" data-collapsed="false"><h1>Spatially integrated regional mean</h1>
+        <div class="container" id="legend_compcycle_div">
+          <div class="child">
+          <center>MODEL&nbsp;COLORS</center>
+          <img src="" id="legend_compcycle" alt="Data not available" ></img>
+          </div>
+        </div>
+        <div class="container" id="spaceint_div">
+          <div class="child">
+          <center>REGIONAL&nbsp;MEAN</center>
+          <img src="" id="spaceint" alt="Data not available" ></img>
+          </div>
+        </div>
+        <div class="container" id="cycle_div">
+          <div class="child">
+          <center>ANNUAL&nbsp;CYCLE</center>
+          <img src="" id="cycle" alt="Data not available" ></img>
+          </div>
+        </div>
+        <div class="container" id="dtcycle_div">
+          <div class="child">
+          <center>MONTHLY&nbsp;ANOMALY</center>
+          <img src="" id="dtcycle" alt="Data not available" ></img>
+          </div>
+        </div>
+        <div class="container" id="compcycle_div">
+          <div class="child">
+          <center>ANNUAL&nbsp;CYCLE</center>
+          <img src="" id="compcycle" alt="Data not available" ></img>
+          </div>
+        </div>
+        </div>
+    </div>
+    <div data-role="page" id="AllModels">
+      <div data-role="header" data-position="fixed" data-tap-toggle="false">
+        <h1 id="AllModelsHead">All Models</h1>
+        <div data-role="navbar">
+          <ul>
+            <li><a href='#MeanState'>Mean State</a></li>
+            <li><a href='#AllModels' class=ui-btn-active ui-state-persist>All Models</a></li>
+            <li><a href='#DataInformation'>Data Information</a></li>
+          </ul>
+        </div>
+      </div>
+      <select id="AllModelsRegion" onchange="AllSelect()">
+        <option value='bona' selected="selected">Boreal North America</option>
+      </select>
+      <select id="AllModelsPlot" onchange="AllSelect()">
+        <option value='timeint' selected="selected">Temporally integrated period mean</option>
+        <option value='phase'>Temporally integrated period mean max month</option>
+        <option value='shift'>Temporally integrated mean phase shift</option>
+        <option value='shiftscore'>Temporally integrated mean phase shift score</option>
+        <option value='bias'>Temporally integrated period mean bias</option>
+        <option value='biasscore'>Temporally integrated period mean bias score</option>
+        <option value='rmse'>Temporally integrated period mean rmse</option>
+        <option value='rmsescore'>Temporally integrated period mean rmse score</option>
+        <option value='cycle'>Spatially integrated regional mean cycle</option>
+        <option value='dtcycle'>Spatially integrated regional mean detrended cycle</option>
+        <option value='spaceint'>Spatially integrated regional mean</option>
+      </select>
+        <div class="container" id="Benchmark_div">
+          <div class="child">
+          <center>Benchmark</center>
+          <img src="" id="Benchmark" alt="Data not available" ></img>
+          <center><img src="legend_Benchmark.png" id="Benchmark_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="CABLE-POP_div">
+          <div class="child">
+          <center>CABLE-POP</center>
+          <img src="" id="CABLE-POP" alt="Data not available" ></img>
+          <center><img src="legend_CABLE-POP.png" id="CABLE-POP_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="CLM5_div">
+          <div class="child">
+          <center>CLM5</center>
+          <img src="" id="CLM5" alt="Data not available" ></img>
+          <center><img src="legend_CLM5.png" id="CLM5_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="IBIS_div">
+          <div class="child">
+          <center>IBIS</center>
+          <img src="" id="IBIS" alt="Data not available" ></img>
+          <center><img src="legend_IBIS.png" id="IBIS_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="ISAM_div">
+          <div class="child">
+          <center>ISAM</center>
+          <img src="" id="ISAM" alt="Data not available" ></img>
+          <center><img src="legend_ISAM.png" id="ISAM_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="ISBA-CTRIP_div">
+          <div class="child">
+          <center>ISBA-CTRIP</center>
+          <img src="" id="ISBA-CTRIP" alt="Data not available" ></img>
+          <center><img src="legend_ISBA-CTRIP.png" id="ISBA-CTRIP_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="JULES_div">
+          <div class="child">
+          <center>JULES</center>
+          <img src="" id="JULES" alt="Data not available" ></img>
+          <center><img src="legend_JULES.png" id="JULES_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="LPX-Bern_div">
+          <div class="child">
+          <center>LPX-Bern</center>
+          <img src="" id="LPX-Bern" alt="Data not available" ></img>
+          <center><img src="legend_LPX-Bern.png" id="LPX-Bern_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="ORCHIDEE_div">
+          <div class="child">
+          <center>ORCHIDEE</center>
+          <img src="" id="ORCHIDEE" alt="Data not available" ></img>
+          <center><img src="legend_ORCHIDEE.png" id="ORCHIDEE_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="ORCHIDEE-CNP_div">
+          <div class="child">
+          <center>ORCHIDEE-CNP</center>
+          <img src="" id="ORCHIDEE-CNP" alt="Data not available" ></img>
+          <center><img src="legend_ORCHIDEE-CNP.png" id="ORCHIDEE-CNP_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="ORCHIDEEv3_div">
+          <div class="child">
+          <center>ORCHIDEEv3</center>
+          <img src="" id="ORCHIDEEv3" alt="Data not available" ></img>
+          <center><img src="legend_ORCHIDEEv3.png" id="ORCHIDEEv3_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="SDGVM_div">
+          <div class="child">
+          <center>SDGVM</center>
+          <img src="" id="SDGVM" alt="Data not available" ></img>
+          <center><img src="legend_SDGVM.png" id="SDGVM_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="VISIT_div">
+          <div class="child">
+          <center>VISIT</center>
+          <img src="" id="VISIT" alt="Data not available" ></img>
+          <center><img src="legend_VISIT.png" id="VISIT_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="YIBs_div">
+          <div class="child">
+          <center>YIBs</center>
+          <img src="" id="YIBs" alt="Data not available" ></img>
+          <center><img src="legend_YIBs.png" id="YIBs_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+    </div>
+    <div data-role="page" id="DataInformation">
+      <div data-role="header" data-position="fixed" data-tap-toggle="false">
+        <h1 id="DataInformationHead">Data Information</h1>
+        <div data-role="navbar">
+          <ul>
+            <li><a href='#MeanState'>Mean State</a></li>
+            <li><a href='#AllModels'>All Models</a></li>
+            <li><a href='#DataInformation' class=ui-btn-active ui-state-persist>Data Information</a></li>
+          </ul>
+        </div>
+      </div>
+      
+<p><dl><dt><b>&nbsp;&nbsp;Title:</dt></b><dd>ABoVE: Monthly average surface temperature (0.25 deg) across Canada and Alaska, 1979-2018</dd></dl></p><p><dl><dt><b>&nbsp;&nbsp;Institution:</dt></b><dd>University of California, Los Angeles</dd></dl></p><p><dl><dt><b>&nbsp;&nbsp;Source:</dt></b><dd>Variable Infiltration Capacity (VIC) model, version 4.1.2</dd></dl></p><p><dl><dt><b>&nbsp;&nbsp;History:</dt></b><dd>Thu Sep 09 12:46:32 2021: cdo -setattribute,tas@units=K surface_temperature_monthly_edited.nc4 surface_temperature_monthly_edited_v2.nc4
+Thu Sep  9 12:44:05 2021: ncap2 -O -s tas=tas+273.15</dd><dd>surface_temperature_monthly.nc4 surface_temperature_monthly_edited.nc4
+Thu Sep 09 12:25:07 2021: cdo chname,SURF_TEMP,tas surface_temperature_monthly.nc4 surface_temperature_monthly_edited.nc4</dd></dl></p><p><dl><dt><b>&nbsp;&nbsp;References:</dt></b><dd>Solomon Vimal, Dennis P. Lettenmaier, Laurence C. Smith</dd></dl></p><p><dl><dt><b>&nbsp;&nbsp;Conventions:</dt></b><dd>CF-1.6</dd></dl></p><p><dl><dt><b>&nbsp;&nbsp;Cdi:</dt></b><dd>Climate Data Interface version 1.9.8 (<a href='https://mpimet.mpg.de/cdi)'>https://mpimet.mpg.de/cdi)</a></dd></dl></p><p><dl><dt><b>&nbsp;&nbsp;Project:</dt></b><dd>Arctic-Boreal Vulnerability Experiment (ABoVE)</dd></dl></p><p><dl><dt><b>&nbsp;&nbsp;Contact:</dt></b><dd>solomon.vimal@gmail.com</dd></dl></p><p><dl><dt><b>&nbsp;&nbsp;Nco:</dt></b><dd>netCDF Operators version 4.9.3 (Homepage = <a href='http://nco.sf.net, Code = http://github.com/nco/nco)'>http://nco.sf.net, Code = http://github.com/nco/nco)</a></dd></dl></p><p><dl><dt><b>&nbsp;&nbsp;Cdo:</dt></b><dd>Climate Data Operators version 1.9.8 (<a href='https://mpimet.mpg.de/cdo)'>https://mpimet.mpg.de/cdo)</a></dd></dl></p>
+    </div>
+  </body>
+</html>
